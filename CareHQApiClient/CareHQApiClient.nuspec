@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>CareHQ.APIClient</id>
+    <version>1.0.1</version>
+    <title>CareHQ API Client</title>
+    <authors>CareHQ</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/CareHQ/carehq-csharp</projectUrl>
+    <description>C#/.NET API Client for CareHQ</description>
+    <releaseNotes>https://github.com/CareHQ/carehq-csharp</releaseNotes>
+    <copyright>Copyright © CareHQ 2024</copyright>
+    <tags>api carehq</tags>
+  </metadata>
+</package>
