@@ -5,7 +5,6 @@ using System.Text.Json;
 
 namespace CareHQ.Exception
 {
-
     [Serializable]
     public class APIException : System.Exception
     {

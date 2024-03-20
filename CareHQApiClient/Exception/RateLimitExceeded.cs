@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace CareHQ.Exception
 {
     [Serializable]
-    class RateLimitExceeded : APIException
+    public class RateLimitExceeded : APIException
     {
         public RateLimitExceeded(
             HttpStatusCode statusCode,

@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace CareHQ.Exception
 {
     [Serializable]
-    class InvalidRequest : APIException
+    public class InvalidRequest : APIException
     {
         public InvalidRequest(
             HttpStatusCode statusCode,

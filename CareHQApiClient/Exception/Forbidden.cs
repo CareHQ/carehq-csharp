@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace CareHQ.Exception
 {
     [Serializable]
-    class Forbidden : APIException
+    public class Forbidden : APIException
     {
         public Forbidden(
             HttpStatusCode statusCode,

@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace CareHQ.Exception
 {
     [Serializable]
-    class NotFound : APIException
+    public class NotFound : APIException
     {
         public NotFound(
             HttpStatusCode statusCode,
