@@ -25,7 +25,7 @@ namespace CareHQ
         /// NOTE: Rate limiting information is only available after a request 
         /// has been made.
         /// </remarks>
-        public float RateLimit { get; private set; }
+        public int RateLimit { get; private set; } = 0;
 
         /// <summary>
         /// Gets the time of when the current <see cref="RateLimit"/> will 
@@ -35,7 +35,7 @@ namespace CareHQ
         /// NOTE: Rate limiting information is only available after a request 
         /// has been made.
         /// </remarks>
-        public float RateLimitReset { get; private set; }
+        public double RateLimitReset { get; private set; } = 0;
 
         /// <summary>
         /// Gets the number of requests remaining within the current limit 
@@ -45,7 +45,7 @@ namespace CareHQ
         /// NOTE: Rate limiting information is only available after a request
         /// has been made.
         /// </remarks>
-        public float RateLimitRemaining { get; private set; }
+        public int RateLimitRemaining { get; private set; } = -1;
 
         /// <summary>
         /// The Id of the CareHQ account the API key relates to
@@ -140,7 +140,7 @@ namespace CareHQ
                 }
 
             var signatureBody = string.Join("", signatureValues);
-
+            
             string timestamp = new DateTimeOffset(DateTime.UtcNow)
                 .ToUnixTimeSeconds().ToString();
 
@@ -184,20 +184,19 @@ namespace CareHQ
                 "X-CareHQ-RateLimit-Limit",
                 out var rateLimit)
             )
-                RateLimit = float.Parse(rateLimit.First());
+                RateLimit = int.Parse(rateLimit.First());
 
             if (r.Headers.TryGetValues(
                 "X-CareHQ-RateLimit-Reset",
                 out var rateLimitReset)
             )
-                RateLimitReset = float.Parse(rateLimitReset.First());
+                RateLimitReset = double.Parse(rateLimitReset.First());
 
             if (r.Headers.TryGetValues(
                 "X-CareHQ-RateLimit-Remaining",
                 out var rateLimitRemaining)
             )
-                RateLimitRemaining = float.Parse(rateLimitRemaining.First());
-
+                RateLimitRemaining = int.Parse(rateLimitRemaining.First());
 
             // Handle a successful response
             var jsonData = r.Content.ReadAsStringAsync().Result;
