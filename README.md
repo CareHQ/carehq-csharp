@@ -21,6 +21,7 @@ dotnet add package CareHQ.APIClient
 
 
 using CareHQ;
+using System.Net.Http;
 using System.Text.Json;
 
 ApiClient apiClient = new ApiClient(
